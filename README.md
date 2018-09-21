@@ -6,4 +6,4 @@
 
 * Use whatever language you want
 
-* If you're a G, add some test cases such that running your file prints em neatly to the command lineß
+* If you're a G, add some test cases such that running your file prints em neatly to the command line
