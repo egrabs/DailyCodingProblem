@@ -7,3 +7,5 @@
 * Use whatever language you want
 
 * If you're a G, add some test cases such that running your file prints em neatly to the command line
+
+* If you're a G, also include your estimates for space & time complexity in a comment below your solution
