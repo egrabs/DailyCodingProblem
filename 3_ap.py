@@ -8,6 +8,7 @@ class Node:
         self.left = left
         self.right = right
 
+# Pre-condition: Root of BT must be non-null
 
 def serialize(root):
 	return seri_helper(root, '')
