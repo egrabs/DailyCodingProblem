@@ -38,14 +38,14 @@ class Prefix_Parser:
 		for char in prefix:
 			if char not in sub_tree_root.links.keys(): return None
 			sub_tree_root = sub_tree_root.links[char]
-		return list(sub_tree_root.val) # Everyone likes lists, right?
+		return sub_tree_root.val
 
 
 # --------- Testing --------------
-parser = Prefix_Parser(possibilities)
 possibilities = {'dog', 'deer', 'deal', 'love', 'darn'}
+parser = Prefix_Parser(possibilities)
 test_s1, test_s2 = 'de','l'
-print('Expected \'deer\',\'deal\' --> {}'.format(parser.search_prefix(test_s1)))
-print('Expected \'love\' --> {}'.format(parser.search_prefix(test_s2)))
+print('\n\tExpected \'deer\',\'deal\' --> {}'.format(parser.search_prefix(test_s1)))
+print('\tExpected \'love\' --> {}\n'.format(parser.search_prefix(test_s2)))
 
 
