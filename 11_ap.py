@@ -40,6 +40,9 @@ class Prefix_Parser:
 			sub_tree_root = sub_tree_root.links[char]
 		return sub_tree_root.val
 
+# Pre-processing takes a solid ammount of time,
+# but looking up a prefix takes O(n) with respect
+# to the number of chars in the prefix
 
 # --------- Testing --------------
 possibilities = {'dog', 'deer', 'deal', 'love', 'darn'}
