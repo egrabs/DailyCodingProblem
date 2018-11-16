@@ -9,6 +9,7 @@
 def non_adj_sum(nums):
 	curr_sum, prev_sum = 0, 0
 	idx_valid = True
+	
 	for num in nums:
 
 		if num <= 0: 
