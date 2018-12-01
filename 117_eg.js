@@ -17,6 +17,6 @@ function minLevel(rootNode) {
         }
         recurse(nextLevel, depth+1);
     }
-    recurse(rootNode, 0);
+    recurse([rootNode], 0);
     return minDepth;
 }
