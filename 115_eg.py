@@ -11,6 +11,8 @@ class Node:
 def isSubtreeOf(t, s):
     # checks whether t is a subtree of s
     def checkSubtree(t, s):
+        # I think we want to return false not just if t has a child that s doesn't have but also if s has a child that t doesn't have because
+        # "A subtree of s is a tree consists of a node in s and ****ALL**** of this node's descendants"
         if t.val != s.val or (t.left and not s.left) or (not t.left and s.left) or (t.right and not s.right) or (not t.right and s.right):
             return False
         if t.left and t.right:
