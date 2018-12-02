@@ -20,6 +20,21 @@ function largestSumNonAdjacent(nums) {
     return Math.max(...sums);
 }
 
+function largestSumNonAdjacentEfficient(nums) {
+    let incl = nums[0];
+    let excl = 0;
+    for (let i=1; i<nums.length; i++) {
+        const temp = Math.max(excl, incl);
+        incl = excl + nums[i];
+        excl = temp;
+    }
+    return Math.max(incl, excl);
+}
+
 console.log(largestSumNonAdjacent([2, 4, 6, 2, 5]));
 
 console.log(largestSumNonAdjacent([5, 1, 1, 5]));
+
+console.log(largestSumNonAdjacentEfficient([2, 4, 6, 2, 5]));
+
+console.log(largestSumNonAdjacentEfficient([5, 1, 1, 5]))
