@@ -4,14 +4,7 @@
 // For example, given k = 2 and the array [5, 2, 4, 0, 1], you should return 3.
 
 function maxProfit(prices, numTrades) {
-    const profit = [];
-    // intialize array
-    for (let i=0; i<numTrades+1; i++) {
-        profit.push([]);
-        for (let j=0; j<prices.length; j++) {
-            profit[i].push(0);
-        }
-    }
+    const profit = (new Array(numTrades+1)).fill(new Array(prices.length).fill(0, 0, prices.length), 0, numTrades+1);
 
     for (let k=1; k<numTrades+1; k++) {
         for (let i=1; i<prices.length; i++) {
