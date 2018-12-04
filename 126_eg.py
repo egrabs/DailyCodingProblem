@@ -29,10 +29,10 @@ def rotate(arr, k):
     # rotate by 1 k times
     for _ in range(k):
         # rotate by 1
+        first = arr[0]
         for i in range(len(arr) - 1):
-            temp = arr[i]
             arr[i] = arr[i+1]
-            arr[i+1] = temp
+        arr[len(arr) - 1] = first
     return arr
 
 print 'in place'
