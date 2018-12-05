@@ -12,44 +12,28 @@ def reverseWordsNaive(s):
 
 print(reverseWordsNaive('hello world here'))
 
+
 def reverseWords(s):
+    # "mutable" string for the purposes of this question
     string = ctypes.create_string_buffer(s)
-    i = 0
-    i_prev = 0
-    j = len(string) - 1
-    j_prev = len(string) - 1
-    stepping = True
-    backing = True
-    print string.value
-    while i < j:
-        if string[i] == ' ':
-            stepping = False
-        if string[j] == ' ':
-            backing = False
-        if not stepping and not backing:
-            stepping = True
-            backing = True
-            endIsLonger = j_prev-j > i-i_prev
-            if endIsLonger:
-                diff = (j_prev-j) - (i-i_prev)
-                tmp_word = string[i_prev:i]
-                tmp_rest = string[i:i+diff]
-                string[i_prev:i+diff-1] = string[j+1:j_prev]
-                string[j+diff:j_prev] = tmp_word
-                string[i+diff-1:j+diff] = tmp_rest + string[i+diff:j+1]
-            else:
-                diff = (i-i_prev) - (j_prev-j)
-                tmp_word = string[j+1:j_prev]
-                tmp_rest = string[j-diff:j+1]
-                string[j-diff:j_prev] = string[i_prev:i]
-                string[i_prev:i-diff-1] = tmp_word
-                string[i-diff-1:j-diff] = string[i:j-diff] + tmp_rest
-            j_prev = j
-            i_prev = i
-        if backing:
-            j -= 1
-        if stepping:
-            i += 1
+    start = 0
+    end = 0
+    while end < len(string):
+        if end == len(string)-1 or string[end] == ' ':
+            # reverse each word
+            reverse(string, start, end-1)
+            start = end+1
+        end += 1
+    # reverse the whole string after the words have been reversed
+    reverse(string, 0, len(string)-2)
     return string.value
 
-print(reverseWords('hello world hereeee'))
+def reverse(string, start, end):
+    while start < end:
+        tmp = string[start]
+        string[start] = string[end]
+        string[end] = tmp
+        start += 1
+        end -= 1
+
+print(reverseWords('hello world here is a string that should be reversed in place'))
