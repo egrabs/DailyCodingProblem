@@ -29,7 +29,7 @@ class PeekableInterface(object):
             return self.peeked
         elif self.iterator.hasNext():
             nextEl = self.iterator.next()
-            self.peeked.append(nextEl)
+            self.peeked = nextEl
             return nextEl
         else:
             raise Empty()
