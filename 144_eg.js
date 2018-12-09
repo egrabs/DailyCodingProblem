@@ -23,3 +23,10 @@ function nearestLarger(arr, i) {
 }
 
 console.log(nearestLarger([4, 1, 3, 5, 6], 0) === 3);
+
+console.log(nearestLarger([4, 1, 3, 5, 6], 4) === null);
+
+console.log(nearestLarger([4, 1, 3, 5, 6], 2) === 3);
+
+console.log(nearestLarger([4, 1, 3, 5, 6, 3, 7, 9], 4) === 6);
+
