@@ -15,6 +15,18 @@ def swapTwo(head):
 
     return head
 
+def swapTwoRecursive(head, prev):
+    curr = head
+    if curr:
+        if curr.next:
+            newHead = curr.next.next
+            tmp = curr
+            curr = curr.next
+            curr.next = tmp
+            swapTwoRecursive(newHead, tmp)
+        if prev:
+            prev.next = curr
+    return curr
 
 class Node:
     def __init__(self, val, next=None):
@@ -31,12 +43,16 @@ def printMuhList(head):
     s += 'null'
     print(s)
 
-five = Node(5)
-four = Node(4, five)
-three = Node(3, four)
-two = Node(2, three)
-one = Node(1, two)
+def makeLL():
+    five = Node(5)
+    four = Node(4, five)
+    three = Node(3, four)
+    two = Node(2, three)
+    one = Node(1, two)
+    return one
 
-printMuhList(one)
+printMuhList(makeLL())
 
-printMuhList(swapTwo(one))
+printMuhList(swapTwo(makeLL()))
+
+printMuhList(swapTwoRecursive(makeLL(), None))
