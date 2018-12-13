@@ -20,7 +20,7 @@ def largestOnesArea(mat):
             return 0
         slc = [row[colStart: colEnd] for row in mat[rowStart: rowEnd]]
         allOnesRow = lambda row: all(map(lambda n: n==1, row))
-        if all(map(lambda row: allOnesRow(row), slc)):
+        if all(map(allOnesRow, slc)):
             return (rowEnd-rowStart)*(colEnd-colStart)
         else:
             return max(
