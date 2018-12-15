@@ -10,6 +10,7 @@ function timeMe(test, times) {
     const start = performance.now();
     const retVal = test();
     times.push(performance.now() - start);
+    return retVal;
 }
 
 function kNearest(points, center, k) {
