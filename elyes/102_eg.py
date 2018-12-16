@@ -7,7 +7,7 @@ def whichSum(lst, k):
     slc = None
     def recurse(lst, s):
         nonlocal slc
-        if len(lst) == 0:
+        if len(lst) == 0 or slc != None:
             return
         if s == k:
             slc = lst
@@ -17,5 +17,4 @@ def whichSum(lst, k):
     recurse(lst, s)
     return slc
 
-# hmm this returns [4,5] instead of [2,3,4] . . . but I mean . . . it's not wrong . . .
 print(whichSum([1, 2, 3, 4, 5], 9))
